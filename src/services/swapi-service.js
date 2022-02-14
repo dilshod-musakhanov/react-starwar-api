@@ -20,19 +20,6 @@ export default class SwapiService {
         return res.results;
     }
     getPlanet(id) {
-        return this.getResource(`/planet/${id}`);
+        return this.getResource(`/planets/${id}`);
     }
 }
-
-const swapi = new SwapiService();
-swapi.getAllPeople().then((people) => {
-    people.forEach((p) => {
-        console.log(p.name);
-    })
-});
-
-swapi.getAllPlanets().then((planets) => {
-    planets.forEach((p) => {
-        console.log(p.name);
-    })
-});
