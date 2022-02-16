@@ -10,7 +10,7 @@ import './app.css';
 export default class App extends Component {
 
     state = {showRandomPlanet: true,
-            selectedPerson: null
+            selectedPerson: 5
     };
 
     toggleRandomPlanet = () => {
@@ -21,7 +21,7 @@ export default class App extends Component {
         })
     }
     onPersonSelected = (id) => {
-        this.setState({selectedPerson: id})
+        this.setState({selectedPerson: id});
     }
 
     render() {
