@@ -2,17 +2,15 @@ import React, {Component} from 'react';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import ItemList from '../item-list';
-import PersonDetails from '../person-details';
 
 import './app.css';
 import ErrorIndicator from "../errror-indicator";
 import ErrorButton from "../error-button/error-button";
+import PeoplePage from "../people-page/people-page";
 
 export default class App extends Component {
 
     state = {showRandomPlanet: true,
-            selectedPerson: 1,
             hasError: false
     };
 
@@ -23,12 +21,8 @@ export default class App extends Component {
             }
         })
     }
-    onPersonSelected = (id) => {
-        this.setState({selectedPerson: id});
-    }
 
     componentDidCatch() {
-        console.log("didCatch")
         this.setState({hasError: true});
     }
 
@@ -52,15 +46,12 @@ export default class App extends Component {
                 </button>
                 <ErrorButton />
             </div>
-                <div className="row mb2">
-                    <div className="col-md-6">
-                        <ItemList onItemSelected={this.onPersonSelected}/>
-                    </div>
-                    <div className="col-md-6">
-                        <PersonDetails personId={this.state.selectedPerson} />
-                    </div>
-                </div>
+                <PeoplePage />
+                <PeoplePage />
+                <PeoplePage />
             </div>
+
+
         );
     };
     }
