@@ -5,23 +5,27 @@ import './item-list.css';
 import Spinner from "../spinner";
 
 export default class ItemList extends Component {
-
-     state = {
+    state = {
         itemList: null
     };
 
     componentDidMount() {
-        const {getData} = this.props;
+
+        const { getData } = this.props;
+
         getData()
             .then((itemList) => {
-                this.setState({itemList})
-            })
+                this.setState({
+                    itemList
+                });
+            });
     }
 
     renderItems(arr) {
         return arr.map((item) => {
             const { id } = item;
-            const label = this.props.renderItem(item);
+            const label = this.props.children(item);
+
             return (
                 <li className="list-group-item"
                     key={id}
@@ -34,7 +38,8 @@ export default class ItemList extends Component {
 
     render() {
 
-        const {itemList} = this.state;
+        const { itemList } = this.state;
+
         if (!itemList) {
             return <Spinner />;
         }
