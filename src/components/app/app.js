@@ -59,7 +59,13 @@ export default class App extends Component {
             <ItemDetails
                 itemId={10}
                 getData={getStarship}
-                getImageLink={getStarshipImage}/>
+                getImageLink={getStarshipImage}>
+
+                <Record field="model" label="Model" />
+                <Record field="length" label="Length" />
+                <Record field="manufacturer" label="Manufacturer" />
+
+            </ItemDetails>
         );
 
         return (
