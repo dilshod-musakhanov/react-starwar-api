@@ -18,30 +18,4 @@ const mapMethodsToProps = (swapiService) => {
     }
 };
 
-export default withSwapiService(PersonDetails, mapMethodsToProps);
-
-
-/*
-// mapMethodsToProps is the way to show how we want to pass props to function
-//since names of properties are the same we can write it as {...props} as above
-const PersonDetails = ({ itemId, getData, getImageUrl }) => {
-    return (
-        <ItemDetails
-         itemId={itemId}
-         getData={getData}
-         getImageUrl={getImageUrl}>
-            <Record field="gender" label="Gender" />
-            <Record field="eyeColor" label="Eye Color" />
-        </ItemDetails>
-    );
-};
-
-const mapMethodsToProps = (swapiService) => {
-    return {
-        getData: swapiService.getPerson,
-        getImageUrl: swapiService.getPersonImage
-    }
-};
-
-export default withSwapiService(PersonDetails, mapMethodsToProps);
- */
+export default withSwapiService(mapMethodsToProps)(PersonDetails);
